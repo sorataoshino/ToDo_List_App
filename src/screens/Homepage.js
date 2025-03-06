@@ -14,6 +14,6 @@ const styles = StyleSheet.create({
 
 export default function Homepage(){
     return <View style ={styles.container}>
-        <Card text={'Go to signing class'} />
+        <Card text={"Go to signing class"} />
     </View>
 }

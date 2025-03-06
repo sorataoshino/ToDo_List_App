@@ -1,7 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet} from "react-native";
+import {View, Text, StyleSheet} from "react-native";
 import {CheckBox} from "@react-native-community/checkbox";
-import { SIZES, FONTS, COLORS } from "../constants";
+import {SIZES, FONTS, COLORS} from "../constants";
 
 const styles = StyleSheet.create({
     view:{
@@ -32,8 +32,6 @@ const styles = StyleSheet.create({
 export default function Card(props) {
     return <View style={styles.view}>
         <CheckBox style={styles.checkbox} />
-        <Text style={styles.text}>
-            {props.text}
-        </Text>
+        <Text style={styles.text}>{props.text}</Text>
     </View>
 }
