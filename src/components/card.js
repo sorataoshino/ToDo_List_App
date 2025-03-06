@@ -1,20 +1,18 @@
-import React from "react";
+import {React, useState} from "react";
 import {View, Text, StyleSheet} from "react-native";
-import {CheckBox} from "@react-native-community/checkbox";
-import {SIZES, FONTS, COLORS} from "../constants";
+import Checkbox from "expo-checkbox"
+import {SIZES, FONTS, COLORS, SHADOW} from "../constants";
 
 const styles = StyleSheet.create({
     view:{
+        ...SHADOW,
         width: '100%',
-        paddingVertical: 5,
+        paddingVertical: 12,
         paddingHorizontal: SIZES.padding,
         borderRadius: SIZES.borderRadius,
-        elevation: 12,
-        shadowColor: COLORS.secondary,
-        shadowOffset: {width: 2, height: 12},
-        shadowRadius: 12,
-        justifyContent: 'row',
-        alignItems: 'center'
+        flexDirection: 'row',
+        alignItems: 'center',
+        backgroundColor: COLORS.secondary
     },
     text: {
         ...FONTS.h2_semiBold,
@@ -30,8 +28,10 @@ const styles = StyleSheet.create({
 })
 
 export default function Card(props) {
+    const [isChecked, setChecked] = useState(false);
+
     return <View style={styles.view}>
-        <CheckBox style={styles.checkbox} />
+        <Checkbox style={styles.checkbox} value={isChecked} onValueChange={setChecked}/>
         <Text style={styles.text}>{props.text}</Text>
     </View>
 }
