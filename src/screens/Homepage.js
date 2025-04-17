@@ -72,14 +72,36 @@ export default function Homepage(){
             }
         }
 
-        setList(data);
+        setList(data)
+    }
+
+    function deleteItem(idx){
+        Alert.alert(
+            "Dewete Item",
+            "Are you suwure that you want to dewete this item qwq?", 
+            [
+                {
+                    text: "Naahh",
+                    onPress: () => console.log("Nuh Uh Pwessed QwQ"),
+                    style: "cancel"
+                },
+
+                {
+                    text: "Yaaass",
+                    onPress: () => {
+                        console.log("OK Pwessed")
+                        const data = list.filter((item, index) => index !== idx)
+                        setList(data)
+                    }
+                }
+            ])
     }
 
     return <View style ={styles.container}>
         <Text style={{...FONTS.h1_semiBold, color: COLORS.secondary, marginbottom: 15}}>What need to be done.</Text>
         <FlatList style={{flex: 1}}
             data={list}
-            renderItem={({item, index}) => <Card data={item} index={index} setIsSelected={setIsSelected} />}
+            renderItem={({item, index}) => <Card data={item} index={index} setIsSelected={setIsSelected} deleteItem={deleteItem} />}
             keyExtractor={(item, index) => index.toString()}
 
         />
@@ -91,6 +113,3 @@ export default function Homepage(){
         </View>
     </View>
 }
-
-// https://youtu.be/SsMHZtii0w4?si=93uwz5jidSUi584_&t=5700
-// 1:35:00
