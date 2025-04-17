@@ -1,6 +1,6 @@
 import {React, useState } from 'react';
 import { View, Text, StyleSheet, StatusBar, Platform, TextInput, TouchableOpacity, FlatList, Alert } from "react-native"
-import { Card } from "../components"
+import {Card, Test} from "../components"
 import { COLORS, SIZES, FONTS, SHADOW } from "../constants"
 
 const styles = StyleSheet.create({

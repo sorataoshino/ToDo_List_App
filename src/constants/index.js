@@ -1,6 +1,6 @@
 const COLORS = {
-    primary: "#003131",
-    secondary: "#E9E9E9",
+    primary: "#101218",
+    secondary: "#FFC5D3",
     accent: "#1F936D"
 }
 
@@ -23,4 +23,5 @@ const SHADOW ={
     shadowOffset: {width: 2, height: 12},
     shadowRadius: 12,
 }
+
 export{COLORS, SIZES, FONTS, SHADOW}

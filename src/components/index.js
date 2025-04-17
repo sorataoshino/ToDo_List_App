@@ -1,3 +1,4 @@
 import Card from "./card";
+import Test from "./test";
 
-export {Card}
+export {Card, Test}
