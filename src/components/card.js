@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     },
     text: {
         ...FONTS.h2_semiBold,
-        color: COLORS.primary
+        color: COLORS.primary,
     },
     checkbox:{
         height: 26,
@@ -42,5 +42,3 @@ export default function Card(props) {
         <Text style={{...styles.text, textDecorationLine: props.data.isSelected ? "line-through" : "none"}}>{props.data.text}</Text> 
     </Pressable>
 }
-
-//Checkboxes need to be changed again, because our Styles-Dude uses an old component.

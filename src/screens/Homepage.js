@@ -1,46 +1,7 @@
 import {React, useState } from 'react';
-import { View, Text, StyleSheet, StatusBar, Platform, TextInput, TouchableOpacity, FlatList, Alert } from "react-native"
-import {Card, Test} from "../components"
-import { COLORS, SIZES, FONTS, SHADOW } from "../constants"
-
-const styles = StyleSheet.create({
-    container: {
-        paddingTop: Platform.OS === "ios" ? 40 : StatusBar.currentHeight + 10,
-        flex: 1,
-        backgroundColor: COLORS.primary,
-        padding: SIZES.padding
-    },
-    textBoxWrapper: {
-        width: "100%",
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: SIZES.padding
-    },
-    textInput: {
-        ...SHADOW,
-        borderRadius: SIZES.textBoxRadius,
-        backgroundColor: COLORS.secondary,
-        height: 42,
-        paddingLeft: 15,
-        width: "90%",
-        color: COLORS.primary,
-        marginRight: 15,
-        ...FONTS.h2_semiBold,
-    },
-    btn: {
-        ...SHADOW,
-        backgroundColor: COLORS.accent,
-        height: 42,
-        width: 42,
-        borderRadius: 100,
-        alignItems: "center",
-        justifyContent: "center",
-    }
-})
+import { View, Text, TextInput, TouchableOpacity, FlatList, Alert } from "react-native"
+import {Card} from "../components"
+import { COLORS, FONTS, HOMEPAGE } from "../constants"
 
 export default function Homepage(){
 
@@ -97,17 +58,24 @@ export default function Homepage(){
             ])
     }
 
-    return <View style ={styles.container}>
+    return <View style ={HOMEPAGE.container}>
         <Text style={{...FONTS.h1_semiBold, color: COLORS.secondary, marginbottom: 15}}>What need to be done.</Text>
         <FlatList style={{flex: 1}}
             data={list}
             renderItem={({item, index}) => <Card data={item} index={index} setIsSelected={setIsSelected} deleteItem={deleteItem} />}
             keyExtractor={(item, index) => index.toString()}
-
         />
-        <View style={styles.textBoxWrapper}>
-            <TextInput style={styles.textInput} placeholder="New Task" placeholderTextColor = {COLORS.primary} onChangeText={text => setValue(text)} value={value}/>
-            <TouchableOpacity style={styles.btn} onPress={() => addText(value)}>
+        <View style={HOMEPAGE.textBoxWrapper}>
+            <TextInput
+                style={HOMEPAGE.textInput}
+                placeholder="New Task"
+                placeholderTextColor = {COLORS.primary}
+                onChangeText={text => setValue(text)}
+            />
+            <TouchableOpacity 
+                style={HOMEPAGE.btn}
+                onPress={() => addText(value)}
+            >
                 <Text style={{fontSize: 34, color: COLORS.secondary}}>+</Text>
             </TouchableOpacity>
         </View>
